@@ -13,6 +13,27 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// ── Haptics ───────────────────────────────────────────────────────────────────
+// Gracefully wraps the Web Vibration API — silently no-ops on unsupported devices.
+const haptics = {
+  // A single crisp tick — tile flip
+  tap() {
+    navigator.vibrate?.(10);
+  },
+  // Two quick pulses — pair matched ✅
+  match() {
+    navigator.vibrate?.([30, 40, 60]);
+  },
+  // Short sharp buzz — mismatch ❌
+  wrong() {
+    navigator.vibrate?.([60, 30, 60]);
+  },
+  // Celebration rumble — board cleared 🎉
+  win() {
+    navigator.vibrate?.([40, 30, 80, 30, 120, 40, 200]);
+  }
+};
+
 // ── Zen Symbols Pool (18 symbols) ─────────────────────────────────────────────
 const ZEN_SYMBOLS = [
   '☯️', '🌊', '🧘', '🌸', '🌙', '🎋',
@@ -177,6 +198,7 @@ function onTileClick(tile) {
   if (tile.classList.contains('flipped')) return;
 
   tile.classList.add('flipped');
+  haptics.tap();
 
   if (!firstCard) {
     firstCard = tile;
@@ -207,6 +229,7 @@ function handleMatch() {
 
   // Brief delay for delight, then mark matched
   setTimeout(() => {
+    haptics.match();
     c1.classList.add('matched');
     c2.classList.add('matched');
     c1.classList.remove('flipped');
@@ -216,6 +239,7 @@ function handleMatch() {
 
     if (matchedPairs === totalPairs) {
       stopTimer();
+      haptics.win();
       setTimeout(showWin, 600);
     }
   }, 380);
@@ -226,6 +250,7 @@ function handleMismatch() {
   const c2 = secondCard;
 
   setTimeout(() => {
+    haptics.wrong();
     c1.classList.add('wrong');
     c2.classList.add('wrong');
   }, 200);
