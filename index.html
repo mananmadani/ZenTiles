@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ZenTiles" />
+  <meta name="description" content="A high-end mobile memory game with Zen aesthetics." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="ZenTiles.png" />
+  <link rel="apple-touch-icon" href="ZenTiles.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>ZenTiles</title>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ HOME SCREEN ═══════════════════════════════ -->
+  <section id="home-screen">
+    <div class="home-bg-orb orb-1"></div>
+    <div class="home-bg-orb orb-2"></div>
+    <div class="home-bg-orb orb-3"></div>
+
+    <div class="home-content">
+      <div class="logo-wrapper">
+        <img src="ZenTiles.png" alt="ZenTiles Logo" class="logo-img" />
+        <div class="logo-glow"></div>
+      </div>
+
+      <h1 class="game-title">ZenTiles</h1>
+      <p class="game-subtitle">Find stillness in the match</p>
+
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">☯</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <p class="choose-label">Choose your path</p>
+
+      <div class="difficulty-buttons">
+        <button class="diff-btn" id="btn-beginner" data-mode="beginner">
+          <span class="diff-icon">🌊</span>
+          <span class="diff-name">Beginner</span>
+          <span class="diff-grid">4 × 4 Grid</span>
+        </button>
+        <button class="diff-btn" id="btn-expert" data-mode="expert">
+          <span class="diff-icon">⛰️</span>
+          <span class="diff-name">Expert</span>
+          <span class="diff-grid">6 × 6 Grid</span>
+        </button>
+      </div>
+
+      <p class="version-tag">v1.0 · PWA · Offline Ready</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ GAME SCREEN ═══════════════════════════════ -->
+  <section id="game-screen" class="hidden">
+    <div class="game-bg-orb gorb-1"></div>
+    <div class="game-bg-orb gorb-2"></div>
+
+    <!-- Top Bar -->
+    <header class="stats-bar">
+      <button id="btn-back" class="back-btn" aria-label="Back to home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      </button>
+
+      <div class="stats-group">
+        <div class="stat-card">
+          <span class="stat-label">Moves</span>
+          <span class="stat-value" id="stat-moves">0</span>
+        </div>
+        <div class="stat-card accent">
+          <span class="stat-label">Time</span>
+          <span class="stat-value" id="stat-timer">0:00</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Best</span>
+          <span class="stat-value" id="stat-best">—</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Grid -->
+    <main class="grid-wrapper">
+      <div id="grid-container"></div>
+    </main>
+
+    <!-- Win Overlay -->
+    <div id="win-overlay" class="win-overlay hidden">
+      <div class="win-card">
+        <div class="win-emoji">✨</div>
+        <h2 class="win-title">Zen Achieved</h2>
+        <p class="win-sub">Inner peace unlocked</p>
+        <div class="win-stats">
+          <div class="win-stat">
+            <span class="win-stat-label">Moves</span>
+            <span class="win-stat-value" id="win-moves">—</span>
+          </div>
+          <div class="win-stat">
+            <span class="win-stat-label">Time</span>
+            <span class="win-stat-value" id="win-time">—</span>
+          </div>
+          <div class="win-stat highlight">
+            <span class="win-stat-label">Best</span>
+            <span class="win-stat-value" id="win-best">—</span>
+          </div>
+        </div>
+        <div class="win-actions">
+          <button id="btn-play-again" class="win-btn primary">Play Again</button>
+          <button id="btn-win-home" class="win-btn secondary">Home</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
