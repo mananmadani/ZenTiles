@@ -1,0 +1,27 @@
+{
+  "name": "ZenTiles",
+  "short_name": "ZenTiles",
+  "description": "A high-end, mobile-first Zen memory tile matching game.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#030712",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "ZenTiles.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ZenTiles.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "screenshots": []
+}
