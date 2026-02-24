@@ -18,7 +18,7 @@
 
 ZenTiles is a mobile-first memory game built with zero dependencies — pure HTML, CSS, and JavaScript. Flip tiles, match Zen symbol pairs, and beat your personal best across two difficulty modes.
 
-The UI uses a Gemini-inspired dark aesthetic with glassmorphism surfaces, 3D tile flip animations, and haptic feedback for a native app feel.
+The UI uses a dark aesthetic with glassmorphism surfaces, 3D tile flip animations, and haptic feedback for a native app feel.
 
 ---
 
